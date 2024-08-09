@@ -1,0 +1,91 @@
+.chatbox{
+  z-index: 1;
+}
+.card2 {
+  width: 40rem;
+  height: 40rem;
+  background-color: white;
+  box-shadow: 0px 0px 10px #000000;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+ 
+}
+.card2 .chatbox-header {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 100%;
+  background-color: rgb(239, 239, 239);
+  font-size: 1.8rem;
+  text-align: center;
+  padding: 1rem;
+}
+.card2 .chat-desc {
+
+  overflow-y: auto;
+  width: 100%;
+  height: 90%;
+  padding: 1rem;
+  font-size: 1.4rem;
+}
+.card2 .message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+  }
+  
+ .card2 .user-message {
+   margin-right: 10rem;
+    background-color: #e1f5fe;
+  }
+  
+.card2 .bot-message {
+    margin-left: 10rem;
+    
+    background-color: #f1f0f0;
+  }
+.card2 .user-input {
+  height: 10%;
+  width: 100%;
+  background-color: rgb(239, 239, 239);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.card2 .user-input input {
+  width: 80%;
+  padding: 0.5rem 0rem 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.6rem;
+}
+.card2 .user-input button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.1rem 1rem;
+  border-bottom-right-radius: 10px;
+  border: none;
+  background-color: rgb(219, 219, 219);
+}
+.chat-desc::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .chat-desc::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+
+  
+ 
+  
+  /* Firefox */
+  .chat-desc {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+  }

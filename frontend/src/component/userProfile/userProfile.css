@@ -1,0 +1,109 @@
+.user-profile{
+    box-shadow: 0px 0px 30px rgb(223, 182, 189);
+    margin:10rem ;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+   h1{
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: -2rem;
+   }
+}
+.user-profile .profile-logo{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    h1{
+        font-size: 2rem;
+    }
+    span{
+        color: #f5004ef1;
+    }
+   
+  
+}
+.profile-logo .user-image{
+    position: relative;
+    img{
+        width: 8rem;
+        border-radius: 50%;
+}
+
+}
+.profile-logo .update-profile{
+    position: absolute;
+    left: 5.2rem;
+    bottom: 0rem;
+    background-color: rgb(255, 255, 255);
+    border-radius:50% ;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    font-size: 1.6rem;
+    justify-content: center;
+    align-items: center;
+
+}
+.user-profile .user-info{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    gap: 5rem;
+}
+.user-profile .input-box{
+width: 50%;
+position: relative;
+input{
+   
+    width: 100%;
+    padding:0.8rem 1rem;
+    font-size: 1.6rem;
+    outline: none;
+}
+p{
+    font-size: 1.4rem;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background-color: white;
+    padding: 0px 3px;
+    color: rgb(135, 135, 135);
+}
+}
+.user-profile .update-button{
+   button{
+    padding: 1rem;
+    background-color: #f5004ef1;
+    color: white;
+    font-weight: 400;
+    border: none;
+    border-radius: 0.5rem;
+   }
+}
+
+@media (max-width:700px) {
+    .user-profile{
+        margin: 10rem 1rem;
+    }
+    .user-profile .user-info{
+        gap: 1rem;
+    }
+}
+
+@media (max-width:400px) {
+    .user-profile{
+        align-items: center;
+        gap: 3rem;
+    }
+    .user-profile .user-info{
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .user-profile .input-box{
+        width: 100%;
+    }
+}

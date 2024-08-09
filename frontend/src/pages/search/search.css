@@ -1,0 +1,77 @@
+.search{
+margin-top: 5.5rem;
+background-color: rgba(255, 244, 246, 0.249);
+border: solid 1px rgb(255, 255, 255);
+}
+.search .advertisement{
+margin: 1rem 3rem;
+background-color: pink;
+height: 25rem;
+display: flex;
+align-items: center;
+.desc{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    margin: 3rem;
+    button{
+        padding:  1rem 1.5rem;
+        border-radius: 2rem;
+       border: solid 1px #F5004F;
+       color: #F5004F;
+    }
+    h1{
+        color: rgb(76, 21, 21);
+    }
+  
+}
+}
+.search  .advertisement .desc button:hover{
+    color: white;
+    background-color:#F5004F ;
+}
+.search .filter{
+  padding: 1rem;
+  margin: 1rem 3rem;
+  display: flex;
+  gap: 3rem;
+}
+.search .filter select{
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    background-color: #f1f1f1;
+}
+.search .products{
+   
+    margin: 2rem 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width:700px) {
+    .search .products{
+        padding: 1rem;
+        margin: 1rem;
+    }
+}
+
+@media (max-width:400px) {
+    .search{
+        margin-top: 9rem;
+    }
+    .search .products{
+        margin: 1rem;
+        justify-content: center;
+    }
+    .search .advertisement{
+        border: none;
+        margin: 1rem 0rem;
+    }
+    .search .filter{
+        margin: 1rem 0rem;  
+        justify-content: center;
+    }
+}

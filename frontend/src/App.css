@@ -1,0 +1,25 @@
+.chat-button{
+    position: fixed;
+    right: 3rem;
+    bottom: 5rem;
+}
+ .chatbox{
+    position: fixed;
+    right: 3rem;
+    bottom: 11rem;
+}
+@media (max-width:700px) {
+  .chatbox{
+    bottom: 13rem;
+  }  
+}
+@media (max-width:400px) {
+    .chat-button{
+        right: 2rem;
+        bottom: 2rem;
+    }
+    .chatbox{
+        bottom: 10rem;
+        right: 0.5rem;
+    }  
+}

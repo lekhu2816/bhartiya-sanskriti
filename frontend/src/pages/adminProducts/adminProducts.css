@@ -1,0 +1,19 @@
+.admin-products {
+  margin: 5.5rem 3rem;
+  border: solid 2px rgb(255, 255, 255);
+}
+
+@media (max-width:700px) {
+    .admin-products{
+        margin: 5rem 1rem;
+    }
+    
+  
+}
+
+@media (max-width:400px) {
+    .admin-products{
+        margin: 4rem 0.5rem;
+    }
+ 
+}

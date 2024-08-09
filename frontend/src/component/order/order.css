@@ -1,0 +1,105 @@
+.order {
+  margin-top: 5.5rem;
+  border: solid 1px white;
+}
+.orderCard {
+  margin: 3rem auto;
+  width: 80%;
+  box-shadow: 0px 0px 5px black;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  justify-content: space-between;
+}
+.orderCard .box-img {
+  img {
+    width: 10rem;
+  }
+}
+.orderCard .order-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.order-desc .order-id {
+  h2 {
+    font-weight: 600;
+    font-size: 1.8rem;
+  }
+  p {
+    font-size: 1.4rem;
+  }
+}
+.order-desc .order-item {
+  p {
+    font-size: 1.4rem;
+  }
+}
+.order-desc .order-quantity {
+  padding: 0.5rem 1rem;
+  background-color: rgba(248, 214, 202, 0.547);
+  p {
+    font-size: 1.4rem;
+  }
+}
+.orderCard .order-address {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+}
+.order-address .order-status{
+ p{
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: rgb(255, 0, 0);
+ }
+}
+.order-address .address{
+    p{
+        font-size: 1.4rem;
+    }
+}
+.order-address .contact-no{
+    font-size: 1.4rem;
+    span{
+        color: rgb(99, 99, 99);
+    }
+}
+.order-address .order-date{
+    p{
+        font-size: 1.2rem;
+        font-style: italic;
+        color: rgb(109, 109, 109);
+    }
+}
+
+@media (max-width:700px) {
+    .orderCard{
+ 
+        width: 99%;
+        gap: 2rem;
+    }
+}
+@media (max-width:400px) {
+    .order{
+        margin-top: 9rem;
+    }
+    .orderCard{
+        flex-wrap: wrap;
+        gap: 1rem;
+        width: 98%;
+    }
+    .orderCard .box-img {
+        width: 20%;
+        img {
+          width: 8rem;
+        }
+      }
+      .orderCard .order-desc {
+        width: 70%;
+
+      }
+}

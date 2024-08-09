@@ -1,0 +1,116 @@
+.admin-product {
+    box-shadow: 0px 0px 3px #000000;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 2rem 0rem;
+  }
+  .admin-product .fields {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0.5rem 0rem;
+    h3 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+  }
+  .admin-product .product-desc {
+    h3 {
+      font-size: 1.5rem;
+      display: inline;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+  }
+  .admin-product .product-desc .read-more {
+    cursor: pointer;
+    color: red;
+  }
+  .admin-product .left {
+    padding: 1rem;
+    background-color: rgb(255, 255, 255);
+  }
+  .admin-product .middle {
+    padding: 1rem;
+    background-color: rgba(240, 240, 240, 0.621);
+  }
+  .admin-product .right {
+    background-color: rgb(255, 255, 255);
+    padding: 1rem;
+  }
+  .admin-product .colGreen {
+    color: green;
+  }
+  .admin-product .colRed {
+    color: Red;
+  }
+  .admin-product .tags {
+    color: rgb(81, 0, 255);
+  }
+  @media (max-width:700px) {
+    .admin-product{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .admin-product .middle{
+        background-color: white;
+    }
+    .admin-product .right{
+      background-color: rgba(241, 241, 241, 0.381);
+    }
+}
+
+@media (max-width:400px) {
+ 
+    .admin-product{
+        display: flex;
+        flex-direction: column;      
+    }
+}  
+
+
+/* Image Carausel */
+
+.admin-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  
+  .admin-carousel  .carousel-images {
+    display: flex;
+    justify-content: center;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .admin-carousel  .carousel-image {
+    width: 15rem;
+    max-height: 20rem;
+  }
+  
+  .admin-carousel  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 1;
+  }
+  
+  .admin-carousel .carousel-button.left {
+    left: 10px;
+  }
+  
+  .admin-carousel .carousel-button.right {
+    right: 10px;
+  }
+  
+
+  

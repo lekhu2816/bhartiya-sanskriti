@@ -1,0 +1,246 @@
+/* navbar.css */
+.user-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 3rem;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 5px black;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  z-index: 1;
+}
+
+.logo img {
+  height: 5rem;
+}
+
+.menu-link ul {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.6rem;
+  list-style: none;
+}
+.menu-link ul li:nth-child(1):hover{
+  border-bottom: #f50c00 3px solid;
+}
+.menu-link ul li:nth-child(2):hover{
+  border-bottom: #f500e9 3px solid;
+}
+.menu-link ul li:nth-child(3):hover{
+  border-bottom: #cc00f5 3px solid;
+}
+.menu-link ul li:nth-child(4):hover{
+  border-bottom: #f56200 3px solid;
+}
+.menu-link ul li {
+  padding: 1.4rem 0rem;
+}
+.user-navbar .search-box {
+  display: flex;
+  align-items: center;
+  border: solid 1px rgb(0, 0, 0);
+  border-radius: 2rem;
+}
+.search-box input {
+  font-size: 1.4rem;
+  outline: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+}
+.search-box i {
+  font-size: 1.6rem;
+  background-color: rgba(173, 173, 173, 0.347);
+  padding: 0.5rem;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.cart {
+  position: relative;
+  cursor: pointer;
+}
+.cart i {
+  font-size: 2rem;
+}
+
+.cart p {
+  color: red;
+  position: absolute;
+  top: -15px;
+  right: -14px;
+  padding: 5px;
+  font-size: 1.6rem;
+}
+
+.login-button button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #f5004f;
+  color: white;
+  cursor: pointer;
+}
+
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger-menu i {
+  font-size: 24px;
+}
+
+.product-category:hover .category-dropdown {
+  display: block;
+  position: absolute;
+  top: 5.5rem;
+  left: 10%;
+  width: 80%;
+  height: 30rem;
+}
+.category-dropdown {
+  display: none;
+}
+
+.user-navbar .login-dropdown .user-logo {
+img{
+  width: 3rem;
+}
+}
+.login-dropdown .dropdown{
+  position: absolute;
+  right: 3rem;
+  top: 4.5rem;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 2px rgb(185, 185, 185);
+  display: none;
+  flex-direction: column;  
+  
+  hr{
+    margin:0rem 1rem 1rem 1rem ;
+  }
+}
+#username {
+  margin: 1rem;
+  font-size: 1.6rem;
+  p:nth-child(1){
+    font-style: italic;
+    color: #f5004f;
+    font-weight: 600;
+   }
+   margin-left: 3rem;
+
+}
+.login-dropdown .dropdown-item{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 1rem 3rem;
+  p{
+    color: rgb(74, 74, 74);
+  }
+}
+.login-dropdown .dropdown-item:hover{
+  background-color: rgb(232, 232, 232);
+}
+
+.login-dropdown:hover .dropdown{
+  display: flex;
+  
+}
+/* Responsive Styles */
+
+/* For devices with width less than 700px */
+@media (max-width: 700px) {
+  .user-navbar {
+    padding: 1px 1rem;
+  }
+  .user-navbar .menu-link ul {
+    padding: 2rem;
+    z-index: 1;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: -200px;
+    background-color: #eaeaea;
+    width: 20%;
+    height: 100vh;
+    transition: left 0.3s ease-in-out;
+  }
+
+  .user-navbar  .menu-link.open ul {
+    left: 0;
+  }
+.user-navbar  .menu-link ul li{
+ padding: 0.5rem 4.5rem;
+  }
+  .user-navbar  .hamburger-menu {
+    display: block;
+   i{
+    font-size: 3.4rem;
+   }
+  }
+
+  .user-navbar  .right-section {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .user-navbar  .product-category:hover .category-dropdown {
+    display: block;
+    position: absolute;
+    top: 0rem;
+    left: 100%;
+    width: 100%;
+    height: 30rem;
+  }
+}
+
+/* For devices with width less than 300px */
+
+@media (max-width: 400px) {
+  .user-navbar {
+    padding-bottom: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "logo right-section"
+      "search search";
+  }
+  .user-navbar .right-section {
+    grid-area: right-section;
+    justify-content: flex-end;
+  }
+  .user-navbar  .search-box i {
+    padding: 1rem;
+    position: absolute;
+    right: 1rem;
+  }
+ 
+  .user-navbar  .search-box input {
+    width: 100%;
+    font-size: 1.8rem;
+  }
+  .user-navbar  .search-box {
+    grid-area: search;
+    display: flex;
+  }
+  .user-navbar  .menu-link ul {
+    width: 30%;
+    font-size: 1.8rem;
+    top: 9.5rem;
+  }
+}
