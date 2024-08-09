@@ -12,6 +12,7 @@ const UserProfile = () => {
         phoneNo:'',
         profile:''
        })
+       console.log(userData)
     const handleUserInfo=(event)=>{
        const name=event.target.name;
        const value=event.target.value;
@@ -34,7 +35,11 @@ const UserProfile = () => {
       const response = await axios.post(url, {}, { headers: { 'token': token } });
        const info= response.data.data;
       if(response.data.success){
-       console.log(info)
+       const [firstname,lastname]=info.name.split(" ");
+       const email=info.email;
+       const phoneNo=info.phoneNo;
+       const profile=info.profile;
+       setUserData({firstname,lastname,email,phoneNo,profile})
       }
       else{
         alert(response.data.message)

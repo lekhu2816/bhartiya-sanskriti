@@ -14,6 +14,7 @@ const Navbar = () => {
     if (confirm("Do you want to Logout")) {
       localStorage.removeItem("token");
       setToken("");
+      navigate('/')
     }
   };
 
