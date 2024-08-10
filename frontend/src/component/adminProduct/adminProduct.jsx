@@ -4,52 +4,53 @@ const images=["https://pixlr.com/images/index/ai-image-generator-one.webp",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnhoHDIbSi0WJkzGYr6wemnCS2OzSRkhokmA&s"]
 
 
-const AdminProduct = () => {
+const AdminProduct = ({product}) => {
+  console.log(product)
   const [isExpanded, setIsExpanded] = useState(false);
-  const description =
-    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic sed ad facilis nisi similique totam beatae mollitia aliquid ipsam dicta. Quis non earum, quaerat soluta sit, tempora perspiciatis porro laudantium ea ad maiores itaque deleniti at vel esse rem harum eveniet repudiandae mollitia corrupti. Harum ducimus quod nostrum nam natus?";
+  const description =product.description
+   ;
   const words = description.split(" ");
   const wordLimit = 25;
   const toggleReadMore = () => {
     setIsExpanded(!isExpanded);
   };
-  const availability = "Out Of Stock";
+  const availability = product.stock.availability;
   return (
     <div className="admin-product">
       <div className="left">
         <div className="fields">
           <h3>Product_Id :</h3>
-          <p>1568234547890765</p>
+          <p>{product._id}</p>
         </div>
         <div className="fields">
           <h3>Name :</h3>
-          <p>Silk Saree</p>
+          <p>{product.name}</p>
         </div>
         <div className="fields">
           <h3>Category :</h3>
-          <p>Fashion & Clothing</p>
+          <p>{product.category}</p>
         </div>
         <div className="fields">
           <h3>State :</h3>
-          <p>Uttar Pradesh</p>
+          <p>{product.state}</p>
         </div>
         <div className="fields">
           <h3>Amount :</h3>
-          <p>₹2000</p>
+          <p>₹{product.price.amount}</p>
         </div>
         <div className="fields">
           <h3>Discount :</h3>
-          <p>10%</p>
+          <p>{product.price.discount}%</p>
         </div>
         <div className="fields">
           <h3>Availability :</h3>
-          <p className={availability === "In Stock" ? "colGreen" : "colRed"}>
+          <p className={availability == "In stock" ? "colGreen" : "colRed"}>
             {availability}
           </p>
         </div>
         <div className="fields">
           <h3>Quantity :</h3>
-          <p>49</p>
+          <p>{product.stock.quantity}</p>
         </div>
       </div>
       <div className="middle">
@@ -68,11 +69,12 @@ const AdminProduct = () => {
         </div>
         <div className="fields">
           <h3>Tags:</h3>
-          <p className="tags">Saree,Fashion,Banaras,Women</p>
+           {product.tags.map((tag,idx)=>( <p key={idx} className="tags">{tag},</p>))}
+         
         </div>
       </div>
       <div className="right">
-        <Carousel images={images}></Carousel>
+        <Carousel images={product.images}></Carousel>
       </div>
     </div>
   );

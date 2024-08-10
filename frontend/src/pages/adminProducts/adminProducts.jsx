@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./adminProducts.css";
 import AdminProduct from "../../component/adminProduct/adminProduct";
+import { StoreContext } from "../../storeContext/storeContext";
 const AdminProducts = () => {
-
-  const [productData,setProductData]=useState([1,2,3,4,5,6])
+   const{adminProduct}=useContext(StoreContext)
   
   return (
     <div className="admin-products">
-      {productData.map((product,index)=>(
-        <AdminProduct key={index}></AdminProduct>
+      {adminProduct.map((product,index)=>(
+        <AdminProduct product={product} key={index}></AdminProduct>
       ))}
     </div>
   );

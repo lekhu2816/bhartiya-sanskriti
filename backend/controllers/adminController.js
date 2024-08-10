@@ -69,7 +69,7 @@ const getAdminProducts=async(req,res)=>{
     if(!adminId){
         return res.json({success:false,message:"Admin not authorized"})
     }
-    const adminExist=await adminModel.findById(adminId).select('name products').populate('products');
+    const adminExist=await adminModel.findById(adminId).select('products').populate('products');
     if(!adminExist){
         return res.json({success:false,message:"User doesn't exist"})
     }

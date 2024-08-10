@@ -1,24 +1,17 @@
 import { SERVER_URL } from "../storeContext/storeContext";
 import axios from "axios"
 
-// fetching userData
-const getUserData=async(token)=>{
-    const url=`${SERVER_URL}/api/user/info`
-    const response = await axios.post(url, {}, { headers: { 'token': token } });
-     const info= response.data.data;
-    //  console.log(info)
-    if(response.data.success){
-     const [firstname,lastname]=info.name.split(" ");
-     const email=info.email;
-     const phoneNo=info.phoneNo;
-     const profile=info.profile;
-     return {firstname,lastname,email,phoneNo,profile};
-    }
-    else{
-      alert(response.data.message)
-    }
+// get user-products
+const getAdminproducts=async(adminToken)=>{
+ const url=`${SERVER_URL}/api/admin/get-product`
+ const response= await axios.post(url,{},{headers:{admintoken:adminToken}})
+ console.log(response)
+ if(response.data.success){
+  return response.data.data;
+ }
+ else{
+  return;
+ }
 }
 
-
-
-export {getUserData}
+export  {getAdminproducts}

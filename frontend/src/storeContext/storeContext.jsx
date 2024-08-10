@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { getUserData } from "../API/apiFunction";
+import {getAdminproducts} from "../API/apiFunction";
 import axios from "axios";
 export const SERVER_URL = "http://localhost:5001";
 export const StoreContext = createContext(null);
@@ -8,6 +8,7 @@ const StoreContextProvider = (props) => {
   const [adminToken,setAdminToken]=useState("");
   const [userInfo, setUserInfo] = useState({ firstname: "", profile: "" });
   const [adminInfo,setAdminInfo]=useState({name:"",profile:""})
+  const[adminProduct,setAdminProduct]=useState([]);
 
   // get admin information
   const getAdminInfo=async()=>{
@@ -37,6 +38,15 @@ const StoreContextProvider = (props) => {
     }
   };
 
+  // get adminProduct
+  const getAdminproducts=async()=>{
+    const url=`${SERVER_URL}/api/admin/get-product`
+    const response= await axios.post(url,{},{headers:{admintoken:adminToken}})
+    if(response.data.success){
+     setAdminProduct(response.data.data.products)
+    }
+   }
+
   useEffect(() => {
     setToken(localStorage.getItem("token"));
     setAdminToken(localStorage.getItem('adminToken'));
@@ -47,6 +57,7 @@ const StoreContextProvider = (props) => {
      }
      if(adminToken){
       getAdminInfo()
+      getAdminproducts()
      }
    },[token,adminToken])
 
@@ -64,7 +75,8 @@ const StoreContextProvider = (props) => {
     getUserInfo,
     adminInfo,
     setAdminInfo,
-    getAdminInfo
+    getAdminInfo,
+    adminProduct
   };
   return (
     <StoreContext.Provider value={contextValue}>
