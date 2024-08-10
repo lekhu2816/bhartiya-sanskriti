@@ -30,6 +30,7 @@ const addProduct = async (req, res) => {
       tags:tags.split(',')
     })
     const addedItem=await productData.save();
+    console.log(addedItem)
    
  const newAdmin=   await adminModel.findByIdAndUpdate(adminId, {
       $push: { products: addedItem._id },

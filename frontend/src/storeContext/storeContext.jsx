@@ -7,6 +7,21 @@ const StoreContextProvider = (props) => {
   const [token, setToken] = useState("");
   const [adminToken,setAdminToken]=useState("");
   const [userInfo, setUserInfo] = useState({ firstname: "", profile: "" });
+  const [adminInfo,setAdminInfo]=useState({name:"",profile:""})
+
+  // get admin information
+  const getAdminInfo=async()=>{
+    const url = `${SERVER_URL}/api/admin/info`;
+    const response = await axios.post(url, {}, { headers: { admintoken: adminToken } });
+    const info = response.data.data;
+    if (response.data.success) {
+      const [name] = info.name.split(" ");
+      const profile = info.profile;
+      setAdminInfo({name,profile});
+    } else {
+      alert(response.data.message);
+    }
+  }
 
 //   get user-information
   const getUserInfo = async () => {
@@ -30,7 +45,10 @@ const StoreContextProvider = (props) => {
      if(token){
         getUserInfo()
      }
-   },[token])
+     if(adminToken){
+      getAdminInfo()
+     }
+   },[token,adminToken])
 
 
 
@@ -43,7 +61,10 @@ const StoreContextProvider = (props) => {
     setAdminToken,
     userInfo,
     setUserInfo,
-    getUserInfo
+    getUserInfo,
+    adminInfo,
+    setAdminInfo,
+    getAdminInfo
   };
   return (
     <StoreContext.Provider value={contextValue}>

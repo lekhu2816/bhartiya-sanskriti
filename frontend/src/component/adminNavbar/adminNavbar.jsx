@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 import { StoreContext } from "../../storeContext/storeContext";
 
 const AdminNavbar = () => {
-  const {adminToken,setAdminToken}=useContext(StoreContext);
-
+  const {adminToken,setAdminToken,adminInfo}=useContext(StoreContext);
+  console.log(adminInfo)
   const navigate=useNavigate();
   const adminLogout=()=>{
      if(confirm("Want to Logout")){
@@ -43,12 +43,12 @@ const AdminNavbar = () => {
         ) : (
           <div className="login-dropdown">
             <div className="user-logo">
-              <img src={userLogo} alt="userLogo" />
+              <img src={adminInfo.profile} alt="userLogo" />
             </div>
             <div className="dropdown">
               <div id="username">
                 <p>Hey</p>
-                <p>Lekhu</p>
+                <p>{adminInfo.name}</p>
               </div>
               <hr />
               <Link to={"/admin/profile"} className="dropdown-item">

@@ -4,7 +4,7 @@ import axios from "axios";
 import { StoreContext } from "../../storeContext/storeContext";
 const AdminProfile = () => {
   const [btn, setBtn] = useState(false);
-  const { SERVER_URL, adminToken, getUserInfo } = useContext(StoreContext);
+  const { SERVER_URL, adminToken, getAdminInfo } = useContext(StoreContext);
   const [userData, setUserData] = useState({
     firstname: "",
     lastname: "",
@@ -25,7 +25,7 @@ const AdminProfile = () => {
       fileInputRef.current.click();
     }
   };
-  // update user-info
+  // update admin-info
   const updateUserInfo = async () => {
     const url = `${SERVER_URL}/api/admin/update/info`;
     const name = userData.firstname + " " + userData.lastname;
@@ -42,6 +42,7 @@ const AdminProfile = () => {
       });
       if (response.data.success) {
         getAdminData()
+        getAdminInfo()
         setBtn(false);
         alert(response.data.message);
       }
@@ -50,7 +51,7 @@ const AdminProfile = () => {
       alert(response.data.message)
     }
   };
-  // update user profile
+  // update admin profile
   const handleFilechange = async (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -64,14 +65,13 @@ const AdminProfile = () => {
         },
       });
       if (response.data.success) {
-        console.log(response.data.message);
         getAdminData();
-        // getUserInfo();
+        getAdminInfo();
       }
     }
   };
 
-  // getting userData
+  // getting admin Data
   const getAdminData = async () => {
     const url = `${SERVER_URL}/api/admin/info`;
     const response = await axios.post(url, {}, { headers: { admintoken: adminToken } });
