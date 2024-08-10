@@ -8,7 +8,6 @@ import { StoreContext } from "../../storeContext/storeContext";
 
 const AdminNavbar = () => {
   const {adminToken,setAdminToken,adminInfo}=useContext(StoreContext);
-  console.log(adminInfo)
   const navigate=useNavigate();
   const adminLogout=()=>{
      if(confirm("Want to Logout")){

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import "./addProduct.css";
 import upload from "../../assets/upload.png";
 import axios from 'axios'
+import { StoreContext } from "../../storeContext/storeContext";
 const state = [
   "Andhra Pradesh",
   "Arunachal Pradesh",
@@ -36,7 +37,7 @@ const state = [
 ];
 
 const AddProduct = () => {
-  // const{ SERVER_URL,admintoken}=useContext(StoreContext)
+  const{ SERVER_URL,adminToken}=useContext(StoreContext)
   const [images, setImages] = useState([]);
   const nameRef = useRef();
   const categoryRef = useRef();
@@ -50,7 +51,7 @@ const AddProduct = () => {
   // submit data
   const onSubmitFormhandler =  async(event) => {
     event.preventDefault();
-    if(admintoken){
+    if(adminToken){
       const formData = new FormData();
       formData.append("name", nameRef.current.value);
       formData.append("category", categoryRef.current.value);
@@ -70,7 +71,7 @@ const AddProduct = () => {
       }))
       formData.append("tags",tagRef.current.value);
       const url=`${ SERVER_URL}/api/product/add-product`
-      const response =await axios.post(url,formData,{headers:{admintoken:admintoken}});
+      const response =await axios.post(url,formData,{headers:{admintoken:adminToken}});
       if(response.data.success){
         alert(response.data.message)
         nameRef.current.value="";
