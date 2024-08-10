@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import "./userProfile.css";
+import "./adminProfile.css";
 import axios from "axios";
 import { StoreContext } from "../../storeContext/storeContext";
-const UserProfile = () => {
+const AdminProfile = () => {
   const [btn, setBtn] = useState(false);
-  const { SERVER_URL, token, getUserInfo } = useContext(StoreContext);
+  const { SERVER_URL, adminToken, getUserInfo } = useContext(StoreContext);
   const [userData, setUserData] = useState({
     firstname: "",
     lastname: "",
@@ -27,7 +27,7 @@ const UserProfile = () => {
   };
   // update user-info
   const updateUserInfo = async () => {
-    const url = `${SERVER_URL}/api/user/update/info`;
+    const url = `${SERVER_URL}/api/admin/update/info`;
     const name = userData.firstname + " " + userData.lastname;
     if (userData.phoneNo.length != 10) {
       alert("Enter a valid Phone No");
@@ -38,42 +38,43 @@ const UserProfile = () => {
     const obj = { name, phoneNo };
     if (confirm("Want to make changes")) {
       const response = await axios.post(url, obj, {
-        headers: { token: token },
+        headers: { admintoken: adminToken },
       });
       if (response.data.success) {
-        getUserData();
+        getAdminData()
         setBtn(false);
         alert(response.data.message);
       }
     } else {
       setBtn(false);
+      alert(response.data.message)
     }
   };
   // update user profile
   const handleFilechange = async (event) => {
     const file = event.target.files[0];
     if (file) {
-      const url = `${SERVER_URL}/api/user/update/profile-image`;
+      const url = `${SERVER_URL}/api/admin/update/profile-image`;
       const formData = new FormData();
       formData.append("image", file);
       const response = await axios.post(url, formData, {
         headers: {
-          token: token,
+          admintoken: adminToken,
           "Content-Type": "multipart/form-data",
         },
       });
       if (response.data.success) {
         console.log(response.data.message);
-        getUserData();
-        getUserInfo();
+        getAdminData();
+        // getUserInfo();
       }
     }
   };
 
   // getting userData
-  const getUserData = async () => {
-    const url = `${SERVER_URL}/api/user/info`;
-    const response = await axios.post(url, {}, { headers: { token: token } });
+  const getAdminData = async () => {
+    const url = `${SERVER_URL}/api/admin/info`;
+    const response = await axios.post(url, {}, { headers: { admintoken: adminToken } });
     const info = response.data.data;
     if (response.data.success) {
       const [firstname, lastname] = info.name.split(" ");
@@ -86,13 +87,13 @@ const UserProfile = () => {
     }
   };
   useEffect(() => {
-    if (token) {
-      getUserData();
+    if (adminToken) {
+      getAdminData();
     }
-  }, [token]);
+  }, [adminToken]);
   return (
-    <div className="user-profile">
-      <h1>My Profile</h1>
+    <div className="admin-profile">
+      <h1>Admin Profile</h1>
       <div className="profile-logo">
         <div className="user-image">
           <img src={userData.profile} alt="User" />
@@ -171,4 +172,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default AdminProfile;

@@ -3,6 +3,7 @@ import adminModel from '../models/adminModel.js'
 import validator from 'email-validator';
 import bcrypt from 'bcrypt'
 import uploadToCloudnary from '../utils/cloudinary.js';
+import fs from 'fs'
 // generate Token
 const generateToken=(id)=>{
 return jwt.sign({id},process.env.JWT_SECRETE_KEY);
@@ -79,4 +80,41 @@ const getAdminProducts=async(req,res)=>{
  } 
 }
 
-export {adminSignin,adminSignup,getAdminProducts};
+// get adminInfo
+const getAdminInfo=async(req,res)=>{
+    const {adminId}=req.body;
+    const {name,email,profile,phoneNo}=await adminModel.findById(adminId)
+     try {
+       res.json({success:true,data:{name,email,profile,phoneNo}})
+     } catch (error) {
+       res.json({success:false,message:"Error occured while getting userInfo"})
+     }
+   }
+   
+   // update admin Profile image
+   const updateAdminProfileImage=async(req,res)=>{
+    const image=req.file.path;
+    const {adminId}=req.body;
+    const [profile]= await uploadToCloudnary([image]);
+    fs.unlink(image,(error)=>{
+     if(error){console.log(error)}
+    });
+   await adminModel.findByIdAndUpdate(adminId,{profile},{ new: true, runValidators: true })
+    try {
+     res.json({success:true,message:"Updated"})
+    } catch (error) {
+     res.json({success:false,message:"Error occurd while updating userProfile"})
+    }
+   }
+   // update admin info
+   const updateAdminInfo=async(req,res)=>{
+    const{adminId,name,phoneNo}=req.body;
+    try {
+     const response= await adminModel.findByIdAndUpdate(adminId,{name,phoneNo});
+     res.json({success:true,message:"Updated successfully"})
+    } catch (error) {
+     res.json({success:false,message:"Error occurd while updating userInfo"})
+    }
+   }
+
+export {adminSignin,adminSignup,getAdminProducts,getAdminInfo,updateAdminInfo,updateAdminProfileImage};

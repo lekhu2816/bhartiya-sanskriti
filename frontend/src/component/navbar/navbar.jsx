@@ -3,10 +3,9 @@ import "./navbar.css";
 import logo from "../../assets/logo.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import ProductDropdown from "../productDropdown/productDropdown";
-import userLogo from "../../assets/userLogo.jpg";
 import { StoreContext } from "../../storeContext/storeContext";
 const Navbar = () => {
-  const { token, setToken } = useContext(StoreContext);
+  const { token, setToken,userInfo } = useContext(StoreContext);
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -75,12 +74,12 @@ const Navbar = () => {
         ) : (
           <div className="login-dropdown">
             <div className="user-logo">
-              <img src={userLogo} alt="userLogo" />
+              <img src={userInfo.profile} alt="userLogo" />
             </div>
             <div className="dropdown">
               <div id="username">
                 <p>Hey</p>
-                <p>Lekhansh</p>
+                <p>{userInfo.name}</p>
               </div>
               <hr />
               <Link to={"/profile"} className="dropdown-item">

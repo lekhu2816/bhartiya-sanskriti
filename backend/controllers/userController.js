@@ -4,7 +4,7 @@ import validator from "email-validator";
 import bcrypt from "bcrypt";
 import nodemailer from "nodemailer";
 import uploadToCloudnary from "../utils/cloudinary.js";
-import { response } from "express";
+import fs from 'fs'
 
 // JWT token generator
 const createToken = (id) => {
@@ -149,6 +149,9 @@ const updateUserProfileImage=async(req,res)=>{
  const image=req.file.path;
  const {userId}=req.body;
  const [profile]= await uploadToCloudnary([image]);
+ fs.unlink(image,(error)=>{
+  if(error){console.log(error)}
+ });
 await userModel.findByIdAndUpdate(userId,{profile},{ new: true, runValidators: true })
  try {
   res.json({success:true,message:"Updated"})
@@ -161,8 +164,7 @@ const updateUserInfo=async(req,res)=>{
  const{userId,name,phoneNo}=req.body;
  try {
   const response= await userModel.findByIdAndUpdate(userId,{name,phoneNo});
-  console.log(response)
-  res.json({message:true,message:"Updated successfully"})
+  res.json({success:true,message:"Updated successfully"})
  } catch (error) {
   res.json({success:false,message:"Error occurd while updating userInfo"})
  }

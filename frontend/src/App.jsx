@@ -16,6 +16,7 @@ import Search from "./pages/search/search";
 import Product from "./pages/product/product";
 import UserProfile from "./component/userProfile/userProfile";
 import Order from "./component/order/order";
+import AdminProfile from "./component/adminProfile/adminProfile";
 
 function App() {
   const { pathname } = useLocation();
@@ -53,7 +54,8 @@ function App() {
 
         <Route path="/admin/products" element={<AdminProducts />} />
         <Route path="/admin/addproduct" element={<AddProduct />} />
-        <Route path="/admin/signup" element={<AdminLogin />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/profile" element={<AdminProfile />} />
       </Routes>
     </>
   );

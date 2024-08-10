@@ -115,6 +115,8 @@
 .user-navbar .login-dropdown .user-logo {
 img{
   width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
 }
 }
 .login-dropdown .dropdown{

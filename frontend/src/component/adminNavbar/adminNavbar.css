@@ -37,6 +37,12 @@
     color: white;
     cursor: pointer;
   }
+  .admin-navbar .user-logo {
+    border-radius: 50%;
+    img{
+      width: 3rem;
+    }
+  }
 @media (max-width:400px) {
   .admin-navbar{
     padding: 0rem;
