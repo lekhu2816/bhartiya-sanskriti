@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import {getAdminproducts} from "../API/apiFunction";
 import axios from "axios";
 export const SERVER_URL = "http://localhost:5001";
 export const StoreContext = createContext(null);
