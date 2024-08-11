@@ -1,3 +1,8 @@
 .home-page{
-    margin: 5.5rem 3rem 3rem 3rem;
+    margin: 5.5rem 3rem 0rem 3rem;
+}
+@media (max-width:700px) {
+    .home-page{
+        margin: 5.5rem 0rem 0rem 0rem;
+    }
 }

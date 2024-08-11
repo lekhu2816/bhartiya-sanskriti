@@ -1,23 +1,24 @@
-.carousel {
+.home-carousel {
     position: relative;
     width: 100%;
     margin: auto;
     overflow: hidden;
 }
 
-.carousel-images {
+.home-carousel .carousel-images {
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
 
-.carousel-image {
+.home-carousel .carousel-image {
     min-width: 100%;
 }
 
-.carousel img {
+ .home-carousel img {
     width: 100%;
     height: 400px;
     object-fit: cover;
+    object-position: top;
 }
 
 .left-arrow, .right-arrow {

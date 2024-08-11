@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './carousel.css';
 import logo from '../../assets/logo.png'
 import box from '../../assets/box.png'
-
+const images = [
+  "https://i.ytimg.com/vi/D1FxkgTBPEY/maxresdefault.jpg",
+  "https://images.moneycontrol.com/static-mcnews/2024/04/439557308_805594858139017_1079010427320539521_n.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSzCH9pX4UjDNcl9V5zx_Vod_BEypF8RKlpg&s",
+  "https://st1.latestly.com/wp-content/uploads/2023/11/Rashmika-Mandanna-2-1-380x214.jpg"
+  ];
 const Carousel = () => {
-    const images = [
-      "https://www.hatkay.com/cdn/shop/articles/How-to-Look-Stylish-in-Traditional-Indian-Clothing-Where-to-Buy-the-Best-Fashionable-Ethnic-Wear-for-Women-Online.jpg?v=1671543652",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGGczTElkTsFnf0lRj8SZVEtiz-1AaB5a9fQ&s",
-      "https://www.pratibhasarees.com/cdn/shop/articles/Types_of_Sarees_in_India.jpg?v=1664648179&width=2048",
-      "https://www.fashionworldhub.com/wp-content/uploads/2022/11/krithishetty-looks-pretty-in-peach-saree-672x372.jpg"
-    ];
+
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -31,7 +31,7 @@ const Carousel = () => {
     }, []);
 
     return (
-        <div className="carousel">
+        <div className="home-carousel">
             <button className="left-arrow" onClick={prevSlide}>
                 &#10094;
             </button>
