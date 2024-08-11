@@ -6,3 +6,8 @@
         margin: 5.5rem 0rem 0rem 0rem;
     }
 }
+@media (max-width:400px) {
+    .home-page{
+        margin-top: 9.4rem;
+    }
+}
