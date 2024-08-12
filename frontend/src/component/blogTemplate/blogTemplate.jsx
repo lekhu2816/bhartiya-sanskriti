@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./blogTemplate.css";
+import { useNavigate } from "react-router-dom";
 const BlogTemplate = () => {
+  const navigate=useNavigate();
   const [isExpanded, setIsExpanded] = useState(false);
   const [like, setLike] = useState(false);
   const [commentBox,setCommentBox]=useState(false);
@@ -8,6 +10,8 @@ const BlogTemplate = () => {
   const onHandleChange=(event)=>{
       setComment(event.target.value)
   }
+  const _id="1233456ef546";
+
   const description =
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit sequi iusto praesentium hic quibusdam, quas voluptate nam doloremque iste in ut debitis quae, ratione repellat. Velit, ab? Reiciendis itaque ullam vel vitae facilis, aspernatur at magnam iusto cumque, quisquam hic illo ex rerum ipsam veniam odit, animi expedita ab voluptates labore ad voluptas nulla iure quam. Laudantium ratione praesentium nam a ad facilis repellat quae, eos nulla perferendis sunt laboriosam omnis aut iusto officia! Corporis error consequuntur in! Ab reiciendis architecto tempore fugit, laboriosam atque natus tenetur minima magni quam. Nostrum, eligendi! Ea exercitationem qui excepturi dolorum eius, incidunt sapiente.";
 
@@ -18,7 +22,7 @@ const BlogTemplate = () => {
   };
   return (
     <div className="blog-template">
-      <div className="blog-header">
+      <div  onClick={()=>{navigate(`/blog/${_id}`)}} className="blog-header">
         <div className="user-img">
           <i class="fa-solid fa-user"></i>
         </div>
@@ -52,7 +56,7 @@ const BlogTemplate = () => {
         </p>
       </div>
       <hr />
-      <div className="blog-footer">
+      <div  className="blog-footer">
         <div className="left">
           <span>&#128525;</span>
           <i onClick={()=>setCommentBox(true)} class="fa-regular fa-comment"></i>

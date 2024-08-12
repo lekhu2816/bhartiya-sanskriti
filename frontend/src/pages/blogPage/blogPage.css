@@ -1,0 +1,121 @@
+.blog-page{
+    margin: 8rem 3rem;
+    padding: 1rem 2rem;
+}
+.blog-page .blog-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .blog-page .user-img {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem;
+    border-radius: 50%;
+    border: solid 1px black;
+    background-color: rgb(228, 228, 228);
+    i {
+      font-size: 1.4rem;
+    }
+  }
+  .blog-page .user-desc p:nth-child(1) {
+    font-size: 1.6rem;
+    i {
+      color: rgb(255, 77, 0);
+    }
+  }
+  .blog-page .user-desc p:nth-child(2) {
+    font-size: 1.4rem;
+    span {
+      font-style: italic;
+    }
+  }
+  
+  .blog-page .blog-title {
+    font-size: 1.6rem;
+    color: rgb(188, 63, 63);
+  }
+  .blog-page .blog-description {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .blog-page .comment-section{
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .blog-page .comment-section .comment-left{
+  
+    img{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;  
+    }
+  }
+  .blog-page .comment-section .comment-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    width: 70%;
+    input{
+        width: 100%;
+        padding: 0.5rem;
+        border: none;
+        outline: none;
+        border-bottom: solid 1px black;
+    }
+
+  }
+.blog-page .comment{
+    display: flex;
+    gap: 1rem;
+    margin: 2rem;
+}
+.blog-page .comment .left{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+    background-color: rgb(233, 173, 213);
+}
+.blog-page .comment .right{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+   
+    .info{
+        display: flex;
+        gap: 1rem;
+        font-size: 1.6rem;
+    }
+    .desc{
+        font-size: 1.5rem;
+        color: rgb(0, 0, 0);
+    }
+}
+
+@media (max-width:400px) {
+
+        .blog-page{
+            margin: 11rem 1rem 5rem 1rem;
+            padding: 0rem;
+        }
+
+        .blog-page .comment-section .comment-right{
+            width: 100%;
+        }
+    
+        .blog-page .comment .left{
+           padding: 1rem;
+        }
+}
