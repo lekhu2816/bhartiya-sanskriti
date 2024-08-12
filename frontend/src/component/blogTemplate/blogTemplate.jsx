@@ -3,6 +3,11 @@ import "./blogTemplate.css";
 const BlogTemplate = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [like, setLike] = useState(false);
+  const [commentBox,setCommentBox]=useState(false);
+  const [comment,setComment]=useState("");
+  const onHandleChange=(event)=>{
+      setComment(event.target.value)
+  }
   const description =
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit sequi iusto praesentium hic quibusdam, quas voluptate nam doloremque iste in ut debitis quae, ratione repellat. Velit, ab? Reiciendis itaque ullam vel vitae facilis, aspernatur at magnam iusto cumque, quisquam hic illo ex rerum ipsam veniam odit, animi expedita ab voluptates labore ad voluptas nulla iure quam. Laudantium ratione praesentium nam a ad facilis repellat quae, eos nulla perferendis sunt laboriosam omnis aut iusto officia! Corporis error consequuntur in! Ab reiciendis architecto tempore fugit, laboriosam atque natus tenetur minima magni quam. Nostrum, eligendi! Ea exercitationem qui excepturi dolorum eius, incidunt sapiente.";
 
@@ -50,10 +55,24 @@ const BlogTemplate = () => {
       <div className="blog-footer">
         <div className="left">
           <span>&#128525;</span>
-          <i class="fa-regular fa-comment"></i>
-          <p>Comments 35</p>
+          <i onClick={()=>setCommentBox(true)} class="fa-regular fa-comment"></i>
+          <div style={{ display: commentBox ? "flex" : "none" }} className="addcomment">
+          <input onChange={onHandleChange} type="text" value={comment} name="comment" id="addComment" placeholder="Add a comment" />
+          <div className="comment-btn">
+            <button onClick={()=>setCommentBox(false)} >Cancel</button>
+            <button style={
+              {backgroundColor:comment? "#F5004F":"",
+                color:comment? "white":""
+              }
+              }>Comment</button>
+          </div>
+          </div>
+           
         </div>
         <div className="right">
+        <p>23 Comments</p>
+         
+          <div className="like">
           <p>5</p>
           <i
             onClick={() => {
@@ -63,6 +82,7 @@ const BlogTemplate = () => {
               like ? "setbg" : ""
             }`}
           ></i>
+          </div>
         </div>
       </div>
     </div>

@@ -61,7 +61,7 @@
 .blog-template .blog-footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: flex-start; */
 }
 .blog-footer .left {
   display: flex;
@@ -78,10 +78,17 @@
   font-size: 1.5rem;
 }
 
-.blog-footer .right {
+.blog-footer .right{
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
+  font-size: 1.4rem;
+}
+.blog-footer .right
+  .like{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   i {
     font-size: 2rem;
   }
@@ -92,4 +99,45 @@
 
 .setbg{
     color: red;
+}
+.addcomment{
+width: 90rem;
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+gap: 1rem;
+}
+.addcomment input{
+  width: 100%;
+  outline: none;
+  border:  none;
+  border-bottom: 1px solid black;
+  padding: 2px;
+}
+.comment-btn{
+  display: flex;
+  gap: 1rem;
+}
+.comment-btn button:nth-child(1){
+  border: none;
+  background-color: transparent;
+  font-weight: 500;
+}
+.comment-btn button:nth-child(2){
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  background-color: #fdf8fa;
+  color: rgba(0, 0, 0, 0.269);
+}
+@media (max-width:700px) {
+.blog-footer{
+  display: flex;
+  flex-direction: column-reverse;
+  
+}
+.blog-footer .addcomment{
+width: 50rem;
+}
 }
