@@ -2,35 +2,10 @@
 margin-top: 5.5rem;
 background-color: rgba(255, 244, 246, 0.249);
 border: solid 1px rgb(255, 255, 255);
+margin-left: 3rem;
+margin-right: 3rem;
 }
-.search .advertisement{
-margin: 1rem 3rem;
-background-color: pink;
-height: 25rem;
-display: flex;
-align-items: center;
-.desc{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
-    margin: 3rem;
-    button{
-        padding:  1rem 1.5rem;
-        border-radius: 2rem;
-       border: solid 1px #F5004F;
-       color: #F5004F;
-    }
-    h1{
-        color: rgb(76, 21, 21);
-    }
-  
-}
-}
-.search  .advertisement .desc button:hover{
-    color: white;
-    background-color:#F5004F ;
-}
+
 .search .filter{
   padding: 1rem;
   margin: 1rem 3rem;

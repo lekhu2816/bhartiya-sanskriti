@@ -1,0 +1,142 @@
+.confirm-order {
+  box-shadow: 0px 0px 5px rgb(0, 0, 0);
+  width: 30rem;
+  margin: 8rem auto;
+  border-radius: 5px;
+  text-align: center;
+  /* padding-bottom: 1rem; */
+}
+.confirm-order-title {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 1rem;
+  background-color: #f5004e;
+  color: white;
+  text-align: center;
+}
+.order-description {
+  padding: 4rem 0rem;
+  background-color: #f9cbd971;
+  p {
+    margin: 2rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+.confirm-order-button {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 2rem;
+  background-color: #f9cbd971;
+  display: flex;
+  justify-content: space-evenly;
+}
+.confirm-order-button .order-btn {
+  padding: 1rem 2rem;
+  border: none;
+  font-size: 1.6rem;
+  color: white;
+}
+.confirm-order-button .reject {
+  border-radius: 5px;
+  background-color: #EF0107;
+}
+.confirm-order-button .make-payment {
+  border-radius: 5px;
+  background-color:#4BB543;
+}
+.order-status {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.order-status img {
+  width: 50%;
+}
+.order-status p {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+}
+.order-status-button-accept {
+  margin: 1.5rem;
+  width: 90%;
+  padding: 1rem;
+  color: white;
+  background-color: #4BB543;
+  border: none;
+  border-radius: 2rem;
+}
+.order-status-button-reject {
+  margin: 1.5rem;
+  width: 90%;
+  padding: 1rem;
+  color: white;
+  background-color: #EF0107;
+  border: none;
+  border-radius: 2rem;
+}
+.confirm-order-title-accept {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 1rem;
+  background-color: #4BB543;
+  color: white;
+  text-align: center;
+}
+.confirm-order-title-reject {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 1rem;
+  background-color: #EF0107;
+  color: white;
+  text-align: center;
+}
+.order-status .logo {
+  margin: 1rem;
+ 
+  flex-shrink: 0;
+  border-radius: 9999px;
+  animation: animate 0.6s linear alternate-reverse infinite;
+  transition: 0.6s ease;
+  width: 15rem;
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  i {
+    font-size: 8rem;
+    color: rgb(255, 255, 255);
+  }
+}
+@keyframes animate {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.09);
+  }
+}
+
+#success-logo{
+  background-color: #4BB543;
+}
+#reject-logo{
+  background-color: #EF0107;
+}
+
+
+@media (max-width:400px) {
+  .confirm-order{
+    width: 90%;
+    margin: 10rem auto;
+  }
+}

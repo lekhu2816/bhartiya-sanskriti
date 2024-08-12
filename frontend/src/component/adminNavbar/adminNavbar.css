@@ -38,9 +38,11 @@
     cursor: pointer;
   }
   .admin-navbar .user-logo {
-    border-radius: 50%;
+  
     img{
       width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
     }
   }
 @media (max-width:400px) {

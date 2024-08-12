@@ -17,6 +17,9 @@ import Product from "./pages/product/product";
 import UserProfile from "./component/userProfile/userProfile";
 import Order from "./component/order/order";
 import AdminProfile from "./component/adminProfile/adminProfile";
+import Placeorder from "./component/placeOrder/placeOrder";
+import Payment from "./pages/payment/payment";
+import ConfirmOrder from "./pages/makeOrder/makeOrder";
 
 function App() {
   const { pathname } = useLocation();
@@ -48,6 +51,9 @@ function App() {
         <Route path="/search" element={<Search/>} />
         <Route path="/profile" element={<UserProfile/>} />
         <Route path="/order" element={<Order/>} />
+        <Route path="/placeorder" element={<Placeorder/>} />
+        <Route path="/payment" element={<Payment/>} />
+        <Route path="/confirm-order" element={<ConfirmOrder/>} />
         <Route path="/product/:id" element={<Product/>} />
         
         {/* Admin Routes */}

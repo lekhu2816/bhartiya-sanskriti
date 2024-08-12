@@ -56,4 +56,9 @@ text-align: center;
   .home-page {
     margin-top: 9.4rem;
   }
+  .home-page .services{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
 }

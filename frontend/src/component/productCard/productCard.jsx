@@ -1,7 +1,7 @@
 import React from 'react'
 import './productCard.css'
 import { useNavigate } from 'react-router-dom'
-const src="https://4.imimg.com/data4/FB/MC/MY-4818930/long-dress-for-women.jpg"
+const src="https://www.gethucinema.com/wp-content/uploads/2024/02/KrithiShetty-100-822x1024.jpg"
 const ProductCard = () => {
     const navigate=useNavigate();
     const onClickHandle=()=>{

@@ -2,18 +2,16 @@ import React, { useState } from 'react'
 import './search.css'
 import { useSearchParams } from 'react-router-dom'
 import ProductCard from '../../component/productCard/productCard'
+import Advertisement from '../../component/advertisement/advertisement'
 const Search = () => {
   const [products,setProducts]=useState([1,2,3,4,5,6,7,8,9,0])
     const [searchParams] = useSearchParams();
     const query=searchParams.get('query');
   return (
     <div className='search'>
-      <div className="advertisement">
-      <div className="desc">
-      <h1>Grab Upto 30% off on Selected products</h1>
-      <button>Buy Now</button>
-      </div>
-      </div>
+     
+        <Advertisement></Advertisement>
+      
       <div className="filter">
        <div className="sort-by">
         <select>

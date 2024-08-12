@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import "./cart.css";
 import CartItem from "../../component/cartItem/cartItem";
+import { useNavigate } from "react-router-dom";
 const Cart = () => {
   const [cartData,setCartData]=useState([1,2,3,4,5])
+  const navigate=useNavigate();
+  const handleOrder=()=>{
+    if(cartData){
+       navigate('/placeorder')
+    }
+    else{
+      alert("Please add products")
+    }
+  }
   return (
     <>
     <div className="user-cart">
@@ -54,7 +64,7 @@ const Cart = () => {
               <p>2750</p>
             </div>
           </div>
-          <button>Order now</button>
+          <button onClick={handleOrder}>Order now</button>
         </div>
       </div>
     </div>
