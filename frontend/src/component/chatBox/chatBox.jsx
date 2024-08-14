@@ -12,16 +12,19 @@ const ChatBox = () => {
     const url=`${SERVER_URL}/api/ai/get-response`;
     if(userInput.trim()){
         setMessage((prevMessage)=>[...prevMessage,{text:userInput,sender:"user"}]);
+        
     }
-   const response = await axios.post(url,{message:`${userInput} generate the response not more than 3 lines`})
+    setuserInput("");
+   const response = await axios.post(url,{message:`${userInput} 
+    ...if the given above prompt does not related to indian culture fashion arts and tradition then say "i have no idea related to this" otherwise generate the response not more than 3 lines`})
+   console.log(response)
    if(response.data.success){
     setMessage((prevMessage)=>[...prevMessage,{text:[response.data.data],sender:"bot"}])
-    setuserInput("");
+   
    }
    
   }
   useEffect(() => {
-    console.log(chatContainerRef.current.scrollHeight)
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
     }
