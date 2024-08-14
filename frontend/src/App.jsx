@@ -43,6 +43,7 @@ function App() {
       ) : (
         <></>
       )}
+      <div onClick={()=>setChatBox(false)}>
       <Routes>
         {/* User Routes */}
         <Route path="/" element={<Home />} />
@@ -65,6 +66,7 @@ function App() {
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/profile" element={<AdminProfile />} />
       </Routes>
+      </div>
     </>
   );
 }

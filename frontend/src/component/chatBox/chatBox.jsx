@@ -3,8 +3,8 @@ import "./chatBox.css";
 import { StoreContext } from "../../storeContext/storeContext";
 import axios from "axios";
 const ChatBox = () => {
-  const {SERVER_URL}=useContext(StoreContext)
-  const [message, setMessage] = useState([]);
+  const {SERVER_URL, message,setMessage}=useContext(StoreContext)
+  
   const [userInput, setuserInput] = useState("");
   const chatContainerRef = useRef(null);
 

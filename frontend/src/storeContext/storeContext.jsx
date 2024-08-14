@@ -3,6 +3,7 @@ import axios from "axios";
 export const SERVER_URL = "http://localhost:5001";
 export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
+  const [message, setMessage] = useState([]);
   const [token, setToken] = useState("");
   const [adminToken,setAdminToken]=useState("");
   const [userInfo, setUserInfo] = useState({ firstname: "", profile: "" });
@@ -75,7 +76,9 @@ const StoreContextProvider = (props) => {
     adminInfo,
     setAdminInfo,
     getAdminInfo,
-    adminProduct
+    adminProduct,
+    message,
+    setMessage
   };
   return (
     <StoreContext.Provider value={contextValue}>

@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import "./createBlog.css";
 import axios from 'axios'
+import star from '../../assets/star.png'
 import { StoreContext } from "../../storeContext/storeContext";
-const CreateBlog = () => {
+const CreateBlog = ({setBlogPopup}) => {
       const {SERVER_URL,token}=useContext(StoreContext)
     const [blogData,setBlogData]=useState({
         title:"",
@@ -14,6 +15,14 @@ const CreateBlog = () => {
         const value=event.target.value;
         setBlogData((prev)=>({...prev,[name]:value}))
 
+    }
+    const handleUsingAI=async()=>{
+      const url=`${SERVER_URL}/api/ai/get-response`;
+      console.log(blogData.description)
+      const response=await axios.post(url,{message:`${blogData.description}...improve this prompt in minimum lines.`});
+      if(response.data.success){
+        setBlogData((prev)=>({...prev,description:response.data.data}))
+      }
     }
     const addBlog=async(event)=>{
       event.preventDefault();
@@ -34,6 +43,7 @@ const CreateBlog = () => {
     <div className="create-blog">
       <div className="container">
         <div className="heading">Create Blog</div>
+        <div onClick={()=>(setBlogPopup(false))} className="close-btn">X</div>
         <form onSubmit={addBlog} className="form">
           <input onChange={onChangeHandleBlog}
             required
@@ -52,6 +62,10 @@ const CreateBlog = () => {
             value={blogData.description}
             placeholder="Enter description"
           ></textarea>
+          <div className="generate-ai">
+            <img src={star} alt="" /> 
+            <p onClick={handleUsingAI}>Improve using AI...</p>
+          </div>
           <input className="login-button" type="submit" value="Create" />
         </form>
       </div>
