@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./createBlog.css";
-
+import axios from 'axios'
+import { StoreContext } from "../../storeContext/storeContext";
 const CreateBlog = () => {
+      const {SERVER_URL,token}=useContext(StoreContext)
     const [blogData,setBlogData]=useState({
         title:"",
         description:""
@@ -13,19 +15,32 @@ const CreateBlog = () => {
         setBlogData((prev)=>({...prev,[name]:value}))
 
     }
-    console.log(blogData)
+    const addBlog=async(event)=>{
+      event.preventDefault();
+     const url=`${SERVER_URL}/api/blog/add-blog`
+     const response=await axios.post(url,blogData,{headers:{'token':token}});
+     if(response.data.success){
+      setBlogData({
+        title:"",
+        description:""
+    })
+     }
+     else{
+      console.log(response.data.message)
+     }
+    }
   return (
     <>
     <div className="create-blog">
       <div className="container">
         <div className="heading">Create Blog</div>
-        <form action="" className="form">
+        <form onSubmit={addBlog} className="form">
           <input onChange={onChangeHandleBlog}
             required
             className="input"
             type="text"
             name="title"
-            value={blogData.value}
+            value={blogData.title}
             placeholder="Enter the title"
           />
           <textarea
@@ -34,7 +49,7 @@ const CreateBlog = () => {
             cols="30"
             rows="8"
             name="description"
-            value={blogData.value}
+            value={blogData.description}
             placeholder="Enter description"
           ></textarea>
           <input className="login-button" type="submit" value="Create" />

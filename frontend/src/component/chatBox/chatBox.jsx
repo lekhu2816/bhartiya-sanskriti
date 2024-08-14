@@ -1,18 +1,24 @@
-import React, { useState ,useRef ,useEffect} from "react";
+import React, { useState ,useRef ,useEffect, useContext} from "react";
 import "./chatBox.css";
+import { StoreContext } from "../../storeContext/storeContext";
+import axios from "axios";
 const ChatBox = () => {
+  const {SERVER_URL}=useContext(StoreContext)
   const [message, setMessage] = useState([]);
   const [userInput, setuserInput] = useState("");
   const chatContainerRef = useRef(null);
 
-  const handleSend=()=>{
+  const handleSend=async()=>{
+    const url=`${SERVER_URL}/api/ai/get-response`;
     if(userInput.trim()){
         setMessage((prevMessage)=>[...prevMessage,{text:userInput,sender:"user"}]);
     }
+   const response = await axios.post(url,{message:`${userInput} generate the response not more than 3 lines`})
+   if(response.data.success){
+    setMessage((prevMessage)=>[...prevMessage,{text:[response.data.data],sender:"bot"}])
     setuserInput("");
-    setTimeout(()=>{
-       setMessage((prevMessage)=>[...prevMessage,{text:"This is response from bot",sender:"bot"}])
-    },1000)
+   }
+   
   }
   useEffect(() => {
     console.log(chatContainerRef.current.scrollHeight)
