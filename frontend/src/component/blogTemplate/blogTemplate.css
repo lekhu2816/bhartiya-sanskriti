@@ -28,8 +28,9 @@
   border-radius: 50%;
   border: solid 1px black;
   background-color: rgb(228, 228, 228);
-  i {
-    font-size: 1.4rem;
+  img{
+    width: 3rem;
+    border-radius: 50%;
   }
 }
 .blog-template .user-desc p:nth-child(1) {

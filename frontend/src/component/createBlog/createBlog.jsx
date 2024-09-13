@@ -3,6 +3,8 @@ import "./createBlog.css";
 import axios from 'axios'
 import star from '../../assets/star.png'
 import { StoreContext } from "../../storeContext/storeContext";
+import {toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const CreateBlog = ({setBlogPopup}) => {
       const {SERVER_URL,token}=useContext(StoreContext)
     const [blogData,setBlogData]=useState({
@@ -29,6 +31,7 @@ const CreateBlog = ({setBlogPopup}) => {
      const url=`${SERVER_URL}/api/blog/add-blog`
      const response=await axios.post(url,blogData,{headers:{'token':token}});
      if(response.data.success){
+      toast.success(response.data.message)
       setBlogData({
         title:"",
         description:""

@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import "./blogTemplate.css";
 import { useNavigate } from "react-router-dom";
-const BlogTemplate = () => {
+import moment from "moment"
+
+const BlogTemplate = ({item}) => {
+  // console.log(item)
+  console.log(moment(item.date).fromNow())
   const navigate=useNavigate();
   const [isExpanded, setIsExpanded] = useState(false);
   const [like, setLike] = useState(false);
@@ -10,10 +14,9 @@ const BlogTemplate = () => {
   const onHandleChange=(event)=>{
       setComment(event.target.value)
   }
-  const _id="1233456ef546";
+ 
 
-  const description =
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit sequi iusto praesentium hic quibusdam, quas voluptate nam doloremque iste in ut debitis quae, ratione repellat. Velit, ab? Reiciendis itaque ullam vel vitae facilis, aspernatur at magnam iusto cumque, quisquam hic illo ex rerum ipsam veniam odit, animi expedita ab voluptates labore ad voluptas nulla iure quam. Laudantium ratione praesentium nam a ad facilis repellat quae, eos nulla perferendis sunt laboriosam omnis aut iusto officia! Corporis error consequuntur in! Ab reiciendis architecto tempore fugit, laboriosam atque natus tenetur minima magni quam. Nostrum, eligendi! Ea exercitationem qui excepturi dolorum eius, incidunt sapiente.";
+  const description =item.description;
 
   const words = description.split(" ");
   const wordLimit = 50;
@@ -22,25 +25,25 @@ const BlogTemplate = () => {
   };
   return (
     <div className="blog-template">
-      <div  onClick={()=>{navigate(`/blog/${_id}`)}} className="blog-header">
+      <div  onClick={()=>{navigate(`/blog/${item._id}`)}} className="blog-header">
         <div className="user-img">
-          <i class="fa-solid fa-user"></i>
+         <img  style={{width:"3rem"}}src={item.profile} alt="" srcset="" />
         </div>
         <div className="user-desc">
           <p>
-            Username{" "}
+            {item.name} {" "} 
             <span>
-              <i class="fa-solid fa-crown"></i>
+              <i className="fa-solid fa-crown"></i>
             </span>
           </p>
           <p>
-            Aug 20,2024 <span>. 1 min ago</span>
+            {moment(item.date).format('MMM Do YYYY')} <span>. {moment(item.date).fromNow()}</span>
           </p>
         </div>
       </div>
       <div className="blog-title">
         <h1>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, rem.
+          {item.title}
         </h1>
       </div>
       <div className="blog-description">
@@ -59,7 +62,7 @@ const BlogTemplate = () => {
       <div  className="blog-footer">
         <div className="left">
           <span>&#128525;</span>
-          <i onClick={()=>setCommentBox(true)} class="fa-regular fa-comment"></i>
+          <i onClick={()=>setCommentBox(true)} className="fa-regular fa-comment"></i>
           <div style={{ display: commentBox ? "flex" : "none" }} className="addcomment">
           <input onChange={onHandleChange} type="text" value={comment} name="comment" id="addComment" placeholder="Add a comment" />
           <div className="comment-btn">
@@ -74,15 +77,15 @@ const BlogTemplate = () => {
            
         </div>
         <div className="right">
-        <p>23 Comments</p>
+        <p>{item.comments.length} Comments</p>
          
           <div className="like">
-          <p>5</p>
+          <p>{item.likeCount}</p>
           <i
             onClick={() => {
               setLike((prev) => !prev);
             }}
-            class={`fa-${like ? "solid" : "regular"} fa-heart ${
+            className={`fa-${like ? "solid" : "regular"} fa-heart ${
               like ? "setbg" : ""
             }`}
           ></i>

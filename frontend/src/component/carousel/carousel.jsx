@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './carousel.css';
-import logo from '../../assets/logo.png'
+import img1 from '../../assets/img1.png'
 import box from '../../assets/box.png'
 const images = [
   "https://i.ytimg.com/vi/D1FxkgTBPEY/maxresdefault.jpg",
   "https://images.moneycontrol.com/static-mcnews/2024/04/439557308_805594858139017_1079010427320539521_n.jpg",
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSzCH9pX4UjDNcl9V5zx_Vod_BEypF8RKlpg&s",
-  "https://st1.latestly.com/wp-content/uploads/2023/11/Rashmika-Mandanna-2-1-380x214.jpg"
+  "https://st1.latestly.com/wp-content/uploads/2023/11/Rashmika-Mandanna-2-1-380x214.jpg",
+img1
   ];
 const Carousel = () => {
 
